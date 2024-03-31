@@ -1,9 +1,3 @@
-function change_scale(delta)
-	vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta 
-end
-function reset_scale()
-	vim.g.neovide_scale_factor = 1.0
-end
 -- Set my theme
 vim.cmd.colorscheme("habamax")
 -- Set showing current and relative line numbers
@@ -19,10 +13,9 @@ vim.cmd.language("en_US.UTF-8")
 vim.g.mapleader = " "
 -- Map <leader>w(orking)d(irectory) to open netrw in current directory
 vim.keymap.set("n", "<leader>wd", vim.cmd.Ex)
+vim.opt.fileencodings:remove { "latin1", "default" }
+vim.opt.fileencodings:append { "cp1251", }
 if vim.g.neovide then
 	vim.o.guifont = "Cascadia Mono:h10"
 	vim.opt.linespace = 0
-	reset_scale()
-	vim.keymap.set({"!"}, "<C-=>", function() change_scale(1.1) end)
-	vim.keymap.set({"!"}, "<C-->", function() change_scale(1/1.1) end)
 end

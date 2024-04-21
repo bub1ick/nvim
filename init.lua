@@ -1,21 +1,41 @@
 -- Set my theme
 vim.cmd.colorscheme("habamax")
+
 -- Set showing current and relative line numbers
-vim.o.number         = true
-vim.o.relativenumber = true
+vim.opt.number         = true
+vim.opt.relativenumber = true
+
 -- Show hidden characters
-vim.o.list           = true
-vim.opt.listchars    = { eol = "$", tab = "→ ", space = "·", extends = ">", precedes = "<", trail = "▫" }
-vim.o.showbreak      = "↲"
+vim.opt.list           = true
+vim.opt.listchars      = { eol = "$", tab = "→ ", space = "·", extends = ">", precedes = "<", trail = "▫" }
+vim.opt.showbreak      = "↲"
+
 -- Set locale to english UTF-8
 vim.cmd.language("en_US.UTF-8")
--- Map the leader key
-vim.g.mapleader = " "
--- Map <leader>w(orking)d(irectory) to open netrw in current directory
-vim.keymap.set("n", "<leader>wd", vim.cmd.Ex)
-vim.opt.fileencodings:remove { "latin1", "default" }
-vim.opt.fileencodings:append { "cp1251", }
+
+-- Set nvim internal encoding
+vim.opt.encoding = "utf-8"
+if vim.fn.has("win32") then
+    -- Use cp1251 (Windows Cyrillic) if not utf-8 when opening files
+    vim.opt.fileencodings:remove { "latin1", "default" }
+    vim.opt.fileencodings:append { "cp1251", }
+end
+
+-- Turn off annoying bell sound
+vim.opt.belloff = "all"
+
+--- Set tab options
+-- Make \t appear as 8 spaces
+vim.opt.tabstop     = 8
+-- Allways indent by 4 when using tab. Every 8 spaces tab my potentially be used
+vim.opt.softtabstop = 4
+-- For > operator. Specifies amount of spaces added
+vim.opt.shiftwidth  = 4
+-- Always uses spaces even if tabs may be used.
+vim.opt.expandtab   = true
+
+-- Settings for Neovide
+
 if vim.g.neovide then
-	vim.o.guifont = "Cascadia Mono:h10"
-	vim.opt.linespace = 0
+    vim.opt.linespace = 0
 end

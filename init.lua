@@ -1,5 +1,5 @@
 -- Set my theme
-vim.cmd.colorscheme("darkblue")
+require("bamboo").load()
 
 -- Make comments italisized
 vim.cmd.highlight({ "Comment", "gui=italic" })
@@ -36,6 +36,20 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth  = 4
 -- Always uses spaces even if tabs may be used.
 vim.opt.expandtab   = true
+
+-- Settings for C/C++
+if vim.env.INCLUDE and vim.fn.has("win32") then
+    -- Add include directory to path for easy go-to-file functionality
+    local include_paths = vim.env.INCLUDE
+    -- For some reason some paths have \\ in them. We need to replace them with single \
+    include_paths = vim.fn.substitute(include_paths, "\\\\", "\\", "g")
+    -- Replace \ with /
+    include_paths = vim.fn.substitute(include_paths, "\\", "/", "g")
+    -- Replace ; with ,
+    include_paths = vim.fn.substitute(include_paths, ";", ",", "g")
+    -- Replace <Space> with \\<Space>
+    include_paths = vim.fn.substitute(include_paths, " ", "\\\\ ", "g")
+end
 
 -- Settings for Neovide
 

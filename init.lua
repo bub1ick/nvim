@@ -1,5 +1,7 @@
 -- Set my theme
-require("bamboo").load()
+local bamboo_theme = require("bamboo")
+bamboo_theme.setup({style = "multiplex", })
+bamboo_theme.load()
 
 -- Make comments italisized
 vim.cmd.highlight({ "Comment", "gui=italic" })
@@ -37,6 +39,9 @@ vim.opt.shiftwidth  = 4
 -- Always uses spaces even if tabs may be used.
 vim.opt.expandtab   = true
 
+-- Add working directory recursively
+vim.opt.path:prepend("**")
+
 -- Settings for C/C++
 if vim.env.INCLUDE and vim.fn.has("win32") then
     -- Add include directory to path for easy go-to-file functionality
@@ -49,6 +54,8 @@ if vim.env.INCLUDE and vim.fn.has("win32") then
     include_paths = vim.fn.substitute(include_paths, ";", ",", "g")
     -- Replace <Space> with \\<Space>
     include_paths = vim.fn.substitute(include_paths, " ", "\\\\ ", "g")
+
+    vim.opt.path:append(include_paths)
 end
 
 -- Settings for Neovide

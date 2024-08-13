@@ -1,9 +1,5 @@
--- Set my theme
-local bamboo_theme = require("bamboo")
-bamboo_theme.setup({style = "multiplex", })
-bamboo_theme.load()
-
 -- Make comments italisized
+vim.o.guifont = "Inconsolata:h16:w0"
 vim.cmd.highlight({ "Comment", "gui=italic" })
 
 -- Set showing current and relative line numbers
@@ -63,4 +59,15 @@ end
 if vim.g.neovide then
     vim.opt.linespace = 0
 end
+
+-- All custom mappings
+require("mappings")
+
+-- Lazy plugin manager
+local lazy = require("lazy")
+lazy.setup("lazyspec")
+
+-- lspconfig
+local lspconfig = require("lspconfig")
+lspconfig.clangd.setup({})
 

@@ -2,6 +2,7 @@
 vim.o.guifont = "Inconsolata:h16:w0"
 vim.cmd.highlight({ "Comment", "gui=italic" })
 vim.opt.linespace = 0
+vim.cmd.colorscheme("retrobox")
 
 -- Set showing current and relative line numbers
 vim.opt.number         = true
@@ -39,13 +40,13 @@ vim.opt.expandtab   = true
 --- Netrw settings
 vim.g.netrw_sort_by = "name"
 -- When sorting by name, order in which to sort
-vim.g.netrw_sort_sequence = "\\/$,\\.h$,\\.c$,\\.hpp$,\\.cpp$,*,\\.o$,\\.obj$,\\.info$,\\.swp$,\\.bak$,\\~$"
+vim.g.netrw_sort_sequence = "[\\/]$,\\.h$,\\.c$,\\.hpp$,\\.cpp$,*,\\.o$,\\.obj$,\\.info$,\\.swp$,\\.bak$,\\~$"
 -- Disable the banner on top of the screen
 vim.g.netrw_banner = 0
 -- On "v" command in netrw open the file on the right
 vim.g.netrw_altv = 1
--- By default use "long" listing (with timestamps and etc.)
-vim.g.netrw_liststyle = 1
+-- By default use "short" listing (w/o timestamps and etc.)
+vim.g.netrw_liststyle = 0
 -- Preview on the right on "p"
 vim.g.netrw_preview = 1
 -- Syntax highlighting for special file extensions (not sure if it works at all)
@@ -59,7 +60,7 @@ if vim.env.INCLUDE and vim.fn.has("win32") then
     -- Add include directory to path for easy go-to-file functionality
     local include_paths = vim.env.INCLUDE
     -- For some reason some paths have \\ in them. We need to replace them with single \
-    include_paths = vim.fn.substitute(include_paths, "\\\\\\\\", "\\", "g")
+    include_paths = vim.fn.substitute(include_paths, "\\\\\\\\", "\\", "g") -- LMAO this \
     -- Replace \ with /
     include_paths = vim.fn.substitute(include_paths, "\\", "/", "g")
     -- Replace ; with ,
@@ -80,4 +81,4 @@ lazy.setup("lazyspec")
 -- lspconfig
 local lspconfig = require("lspconfig")
 lspconfig.clangd.setup({})
-
+lspconfig.cmake.setup({})

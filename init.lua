@@ -1,5 +1,5 @@
 -- Make comments italisized
-vim.o.guifont = "Inconsolata:h16:w0"
+vim.o.guifont = "Proggy_Font:h14:w0"
 vim.cmd.highlight({ "Comment", "gui=italic" })
 vim.opt.linespace = 0
 vim.cmd.colorscheme("retrobox")

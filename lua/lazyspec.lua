@@ -33,6 +33,9 @@ return {
         "beyondmarc/hlsl.vim",
     },
     {
+        "chaimleib/vim-renpy",
+    },
+    {
         "folke/which-key.nvim",
         event = "VeryLazy",
         opts = {

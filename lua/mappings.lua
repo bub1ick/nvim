@@ -22,6 +22,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+-- which-key
+vim.keymap.set("n", "<Leader>?", function() require("which-key").show({ global = false }) end, {noremap = true,})
+
 -- Neovide keymaps
 if vim.g.neovide then
     vim.g.neovide_fullscreen = false

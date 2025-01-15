@@ -1,4 +1,4 @@
--- Make comments italisized
+-- Visuals
 vim.o.guifont = "ProggyVector:h14:w0"
 vim.cmd.highlight({ "Comment", "gui=italic" })
 vim.opt.linespace = 0
@@ -81,7 +81,7 @@ if vim.env.INCLUDE and vim.fn.has("win32") then
     -- For some reason some paths have \\ in them. We need to replace them with single \
     include_paths = vim.fn.substitute(include_paths, "\\\\\\\\", "\\", "g") -- LMAO this \
     -- Replace \ with /
-    include_paths = vim.fn.substitute(include_paths, "\\", "/", "g")
+    include_paths = vim.fn.substitute(include_paths, "\\\\", "/", "g")
     -- Replace ; with ,
     include_paths = vim.fn.substitute(include_paths, ";", ",", "g")
     -- Replace <Space> with \\<Space>
@@ -89,6 +89,9 @@ if vim.env.INCLUDE and vim.fn.has("win32") then
 
     vim.opt.path:append(include_paths)
 end
+
+-- Set foldmethod
+vim.opt.foldmethod = "syntax"
 
 -- All custom mappings
 require("mappings")

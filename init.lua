@@ -93,6 +93,9 @@ end
 -- Set foldmethod
 vim.opt.foldmethod = "syntax"
 
+-- Set completion options
+vim.opt.completeopt = { "menu", "menuone", "popup", "noinsert" }
+
 -- All custom mappings
 require("mappings")
 

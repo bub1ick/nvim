@@ -1,5 +1,4 @@
 return {
-    -- The best theme out there
     {
         "sainnhe/everforest",
         priority = 100,
@@ -37,6 +36,6 @@ return {
     {
         "kepano/flexoki-neovim",
         name = "flexoki",
-	lazy = false
+        lazy = false
     }
 }

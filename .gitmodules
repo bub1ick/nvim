@@ -1,0 +1,6 @@
+[submodule "pack/github/start/hlsl"]
+	path = pack/github/start/hlsl
+	url = https://github.com/beyondmarc/hlsl.vim.git
+[submodule "pack/github/start/moonfly"]
+	path = pack/github/start/moonfly
+	url = https://github.com/bluz71/vim-moonfly-colors.git

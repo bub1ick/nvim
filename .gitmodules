@@ -4,3 +4,6 @@
 [submodule "pack/github/start/moonfly"]
 	path = pack/github/start/moonfly
 	url = https://github.com/bluz71/vim-moonfly-colors.git
+[submodule "pack/github/start/shaderlab"]
+	path = pack/github/start/shaderlab
+	url = https://github.com/bub1ick/nvim-shaderlab.git

@@ -7,3 +7,6 @@
 [submodule "pack/github/start/shaderlab"]
 	path = pack/github/start/shaderlab
 	url = https://github.com/bub1ick/nvim-shaderlab.git
+[submodule "pack/github/start/cg"]
+	path = pack/github/start/cg
+	url = https://github.com/vim-scripts/cg.vim.git

@@ -1,6 +1,5 @@
 -- Visuals
 --vim.o.guifont = "ProggyVector:h14:w0"
-vim.cmd.highlight({ "Comment", "gui=italic" })
 vim.opt.linespace = 0
 
 -- Set showing current and relative line numbers
@@ -9,7 +8,14 @@ vim.opt.relativenumber = true
 
 -- Show hidden characters
 vim.opt.list           = true
-vim.opt.listchars      = { eol = "$", tab = "→ ", space = "·", extends = ">", precedes = "<", trail = "▫" }
+vim.opt.listchars      = {
+    eol = "$",
+    tab = "→ ",
+    space = "·",
+    extends = ">",
+    precedes = "<",
+    trail = "▫"
+}
 vim.opt.showbreak      = "↲"
 
 -- Set maximum line length
@@ -100,6 +106,9 @@ vim.opt.completeopt = { "menu", "menuone", "popup", "noinsert" }
 require("mappings")
 
 vim.cmd.colorscheme("moonfly")
+
+-- Status Line construction
+require("statusline")
 
 --vim.lsp.config("clangd")
 vim.lsp.enable("clangd")

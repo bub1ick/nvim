@@ -54,7 +54,7 @@ vim.opt.belloff = "all"
 
 --- Set tab options
 -- Make \t appear as 8 spaces
-vim.opt.tabstop     = 8
+vim.opt.tabstop     = 4
 -- Allways indent by 4 when using tab. Every 8 spaces tab may potentially be used
 vim.opt.softtabstop = 4
 -- For > operator. Specifies amount of spaces added

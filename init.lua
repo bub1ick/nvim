@@ -110,5 +110,5 @@ vim.cmd.colorscheme("moonfly")
 -- Status Line construction
 require("statusline")
 
---vim.lsp.config("clangd")
 vim.lsp.enable("clangd")
+vim.lsp.enable("csharp-ls")

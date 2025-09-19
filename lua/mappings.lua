@@ -11,9 +11,6 @@ vim.keymap.set("n", "<S-Right>", "<C-w>>", {noremap = true,})
 vim.keymap.set("n", "<S-Up>", "<C-w>+", {noremap = true,})
 vim.keymap.set("n", "<S-Down>", "<C-w>-", {noremap = true,})
 
-vim.keymap.set("n", "<C-j>", "gj", {noremap = true,})
-vim.keymap.set("n", "<C-k>", "gk", {noremap = true,})
-
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)

@@ -14,7 +14,6 @@ local find_root_dir_with_file = function(fname, pat)
             upward = true,
             type = "file"
         })
-
     return vim.fs.dirname(results[1])
 end
 

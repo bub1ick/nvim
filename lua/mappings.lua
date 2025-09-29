@@ -11,6 +11,8 @@ vim.keymap.set("n", "<S-Right>", "<C-w>>", {noremap = true,})
 vim.keymap.set("n", "<S-Up>", "<C-w>+", {noremap = true,})
 vim.keymap.set("n", "<S-Down>", "<C-w>-", {noremap = true,})
 
+vim.keymap.set("n", "<Leader>l", function() vim.opt.list = not vim.opt.list:get() end, {noremap = true,})
+
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)

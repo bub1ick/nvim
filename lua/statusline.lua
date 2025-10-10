@@ -53,38 +53,3 @@ local define_status_line = function()
 end
 vim.opt.statusline = define_status_line()
 
--- if vim.g.colors_name == "moonfly" then
---     vim.g.moonflyCursorColor = true
---     vim.g.moonflyItalics = true
---     vim.g.moonflyNormalFloat = false
---     vim.g.moonflyTerminalColors = false
---     vim.g.moonflyTransparent = false
---     vim.g.moonflyUndercurls = true
---     vim.g.moonflyUnderlineMatchParen = true
---     vim.g.moonflyVirtualTextColor = true
---     -- Get the colorscheme table
---     local moonfly = require("moonfly")
--- 
---     -- format the User1-9 highlighting
---     local highlight_commands = [[
--- highlight User1 guibg=%s guifg=%s
--- highlight User2 guibg=%s guifg=%s
--- highlight User3 guibg=%s guifg=%s
--- highlight User4 guibg=%s guifg=%s
--- highlight User5 guibg=%s guifg=%s
--- highlight User6 guibg=%s guifg=%s
--- highlight User7 guibg=%s guifg=%s
--- highlight User8 guibg=%s guifg=%s
--- highlight User9 guibg=%s guifg=%s]]
---     highlight_commands = string.format(highlight_commands,
---         moonfly.palette.grey15, moonfly.palette.emerald, -- User 1
---         moonfly.palette.grey15, moonfly.palette.emerald,   -- User 2
---         moonfly.palette.grey15, moonfly.palette.yellow,  -- User 3
---         moonfly.palette.grey15, moonfly.palette.turquoise,   -- User 4
---         moonfly.palette.grey15, moonfly.palette.blue,    -- User 5
---         moonfly.palette.grey15, moonfly.palette.violet,  -- User 6
---         moonfly.palette.grey15, moonfly.palette.red,     -- User 7
---         moonfly.palette.grey15, moonfly.palette.emerald,     -- User 8
---         moonfly.palette.grey15, moonfly.palette.emerald)     -- User 9
---     vim.cmd(highlight_commands)
--- end

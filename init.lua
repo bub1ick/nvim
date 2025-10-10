@@ -7,8 +7,7 @@ vim.opt.number         = true
 vim.opt.relativenumber = true
 
 -- Show hidden characters
-vim.opt.list           = true
-vim.opt.listchars      = {
+vim.opt.listchars = {
     eol = "$",
     tab = "→ ",
     space = "·",
@@ -16,10 +15,10 @@ vim.opt.listchars      = {
     precedes = "<",
     trail = "▫"
 }
-vim.opt.showbreak      = "↲"
+vim.opt.showbreak = "↲"
 
 -- Set maximum line length
-vim.opt.textwidth = 100
+vim.opt.textwidth   = 100
 vim.opt.colorcolumn = "+5"
 
 -- Set locale to english UTF-8
@@ -98,14 +97,24 @@ end
 
 -- Set foldmethod
 vim.opt.foldmethod = "syntax"
-
+-- If supported by language server fold using it
+vim.api.nvim_create_autocmd( 'LspAttach', {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client:supports_method('textDocument/foldingRange') then
+            vim.opt.foldmethod = "expr"
+            local win = vim.api.nvim_get_current_win()
+            vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+        end
+    end,
+})
 -- Set completion options
-vim.opt.completeopt = { "menu", "menuone", "popup", "noinsert" }
+vim.opt.completeopt = { "menu", "menuone", "popup", "noinsert", "fuzzy" }
 
 -- All custom mappings
 require("mappings")
 
-vim.cmd.colorscheme("moonfly")
+vim.cmd.colorscheme("habamax")
 
 -- Status Line construction
 require("statusline")

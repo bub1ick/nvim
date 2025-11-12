@@ -1,5 +1,7 @@
 -- Visuals
---vim.o.guifont = "ProggyVector:h14:w0"
+if vim.fn.has("win32") then
+    vim.o.guifont = "Cascadia_Mono:h11:w0"
+end
 vim.opt.linespace = 0
 
 -- Set showing current and relative line numbers

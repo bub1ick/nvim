@@ -6,11 +6,13 @@ vim.keymap.set("n", "<C-t>", vim.cmd.tabnew, {noremap = true,})
 vim.keymap.set("n", "<C-q>", vim.cmd.tabclose, {noremap = true,})
 vim.keymap.set("n", "<C-s>", vim.cmd.pop, {noremap = true,})
 
+-- Window Resizing
 vim.keymap.set("n", "<S-Left>",  "<C-w><", {noremap = true,})
 vim.keymap.set("n", "<S-Right>", "<C-w>>", {noremap = true,})
 vim.keymap.set("n", "<S-Up>",    "<C-w>+", {noremap = true,})
 vim.keymap.set("n", "<S-Down>",  "<C-w>-", {noremap = true,})
 
+-- Toggle hidden characters
 vim.keymap.set("n", "<Leader>l", function() vim.opt.list = not vim.opt.list:get() end, {noremap = true,})
 
 -- LSP
@@ -37,6 +39,10 @@ vim.api.nvim_create_autocmd( "LspAttach", {
         })
     end,
 })
+
+-- nvim-tree
+local nvim_tree_api = require("nvim-tree.api")
+vim.keymap.set("n", "<Leader>p", nvim_tree_api.tree.toggle, {noremap = true,})
 
 -- Neovide keymaps
 if vim.g.neovide then

@@ -21,11 +21,13 @@ config.root_dir = function(bufnr, on_dir)
     local fname = vim.api.nvim_buf_get_name(bufnr)
 
     local solution_dir = find_root_dir_with_file(fname, ".*%.slnx?$")
+    vim.print(solution_dir)
     if solution_dir then
         return on_dir(solution_dir)
     end
 
     local csproj_dir = find_root_dir_with_file(fname, ".*%.csproj$")
+    vim.print(csproj_dir)
     if csproj_dir then
         return on_dir(csproj_dir)
     end

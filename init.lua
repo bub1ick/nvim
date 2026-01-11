@@ -64,6 +64,10 @@ vim.opt.shiftwidth  = 4
 vim.opt.expandtab   = true
 
 --- Netrw settings
+-- Disable Netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.g.netrw_sort_by = "name"
 -- When sorting by name, order in which to sort
 vim.g.netrw_sort_sequence = "[\\/]$,\\.h$,\\.c$,\\.hpp$,\\.cpp$,*,\\.o$,\\.obj$,\\.info$,\\.swp$,\\.bak$,\\~$"
@@ -77,6 +81,25 @@ vim.g.netrw_liststyle = 0
 vim.g.netrw_preview = 1
 -- Syntax highlighting for special file extensions (not sure if it works at all)
 vim.g.netrw_special_syntax = 1
+
+-- nvim-tree.lua
+
+require("nvim-tree").setup({
+        sync_root_with_cwd = true,
+        respect_buf_cwd = true,
+        view = {
+            side = "left",
+            width = {
+                min = 20,
+                max = 100,
+            }
+        },
+        renderer = {
+            add_trailing = true,
+            group_empty = true,
+        }
+    }
+)
 
 -- Add working directory recursively
 vim.opt.path:prepend("**")

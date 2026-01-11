@@ -1,12 +1,15 @@
-[submodule "pack/github/start/hlsl"]
+[submodule "hlsl.vim"]
 	path = pack/github/start/hlsl
 	url = https://github.com/beyondmarc/hlsl.vim.git
-[submodule "pack/github/start/moonfly"]
+[submodule "moonfly"]
 	path = pack/github/start/moonfly
 	url = https://github.com/bluz71/vim-moonfly-colors.git
-[submodule "pack/github/start/shaderlab"]
+[submodule "nvim-shaderlab"]
 	path = pack/github/start/shaderlab
 	url = https://github.com/bub1ick/nvim-shaderlab.git
-[submodule "pack/github/start/cg"]
+[submodule "cg.vim"]
 	path = pack/github/start/cg
 	url = https://github.com/vim-scripts/cg.vim.git
+[submodule "nvim-tree.lua"]
+	path = pack/github/start/nvim-tree
+	url = https://github.com/nvim-tree/nvim-tree.lua.git

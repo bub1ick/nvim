@@ -13,3 +13,6 @@
 [submodule "nvim-tree.lua"]
 	path = pack/github/start/nvim-tree
 	url = https://github.com/nvim-tree/nvim-tree.lua.git
+[submodule "poimandres.nvim"]
+	path = pack/github/start/poimandres
+	url = https://github.com/olivercederborg/poimandres.nvim.git

@@ -1,4 +1,5 @@
 -- Visuals
+vim.cmd.colorscheme("poimandres")
 if vim.fn.has("win32") then
     vim.o.guifont = "Cascadia_Mono:h11:w0"
 end
@@ -63,43 +64,6 @@ vim.opt.shiftwidth  = 4
 -- Always uses spaces even if tabs may be used.
 vim.opt.expandtab   = true
 
---- Netrw settings
--- Disable Netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-vim.g.netrw_sort_by = "name"
--- When sorting by name, order in which to sort
-vim.g.netrw_sort_sequence = "[\\/]$,\\.h$,\\.c$,\\.hpp$,\\.cpp$,*,\\.o$,\\.obj$,\\.info$,\\.swp$,\\.bak$,\\~$"
--- Disable the banner on top of the screen
-vim.g.netrw_banner = 0
--- On "v" command in netrw open the file on the right
-vim.g.netrw_altv = 1
--- By default use "short" listing (w/o timestamps and etc.)
-vim.g.netrw_liststyle = 0
--- Preview on the right on "p"
-vim.g.netrw_preview = 1
--- Syntax highlighting for special file extensions (not sure if it works at all)
-vim.g.netrw_special_syntax = 1
-
--- nvim-tree.lua
-
-require("nvim-tree").setup({
-        sync_root_with_cwd = true,
-        respect_buf_cwd = true,
-        view = {
-            side = "left",
-            width = {
-                min = 20,
-                max = 100,
-            }
-        },
-        renderer = {
-            add_trailing = true,
-            group_empty = true,
-        }
-    }
-)
 
 -- Add working directory recursively
 vim.opt.path:prepend("**")
@@ -136,13 +100,33 @@ vim.api.nvim_create_autocmd( 'LspAttach', {
 -- Set completion options
 vim.opt.completeopt = { "menu", "menuone", "popup", "noinsert", "fuzzy" }
 
+-- Disable Netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- nvim-tree.lua
+require("nvim-tree").setup({
+        sync_root_with_cwd = true,
+        reload_on_bufenter = true,
+        view = {
+            side = "left",
+            width = {
+                min = 20,
+                max = 100,
+            }
+        },
+        renderer = {
+            add_trailing = true,
+            group_empty = true,
+        }
+    }
+)
+
 -- All custom mappings
 require("mappings")
-
-vim.cmd.colorscheme("habamax")
 
 -- Status Line construction
 require("statusline")
 
 vim.lsp.enable("clangd")
 vim.lsp.enable("csharp-ls")
+

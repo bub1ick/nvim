@@ -15,6 +15,9 @@ vim.keymap.set("n", "<S-Down>",  "<C-w>-", {noremap = true,})
 -- Toggle hidden characters
 vim.keymap.set("n", "<Leader>l", function() vim.opt.list = not vim.opt.list:get() end, {noremap = true,})
 
+-- Change working directory to that of current file's directory
+vim.keymap.set("n", "<Leader>c", ":tcd %:p:h<CR>:pwd<CR>", {noremap = true,})
+
 -- LSP
 vim.api.nvim_create_autocmd( "LspAttach", {
     callback = function(args)

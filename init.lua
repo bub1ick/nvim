@@ -1,5 +1,5 @@
 -- Visuals
-vim.cmd.colorscheme("poimandres")
+vim.cmd.colorscheme("habamax")
 if vim.fn.has("win32") then
     vim.o.guifont = "Cascadia_Mono:h11:w0"
 end
@@ -136,5 +136,5 @@ require("mappings")
 require("statusline")
 
 vim.lsp.enable("clangd")
-vim.lsp.enable("csharp-ls")
+-- vim.lsp.enable("csharp-ls")
 

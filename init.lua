@@ -1,5 +1,5 @@
 -- Visuals
-vim.cmd.colorscheme("habamax")
+vim.cmd.colorscheme("lunaperche")
 if vim.fn.has("win32") then
     vim.o.guifont = "Cascadia_Mono:h11:w0"
 end
@@ -31,8 +31,8 @@ vim.opt.listchars = {
 vim.opt.showbreak = "↲"
 
 -- Set maximum line length
-vim.opt.textwidth   = 100
-vim.opt.colorcolumn = "+5"
+--vim.opt.textwidth   = 100
+vim.opt.colorcolumn = "80,100,120"
 
 -- Set locale to english UTF-8
 vim.cmd.language("en_US.UTF-8")
@@ -41,8 +41,8 @@ vim.cmd.language("en_US.UTF-8")
 vim.opt.encoding = "utf-8"
 if vim.fn.has("win32") then
     -- Use cp1251 (Windows Cyrillic) if not utf-8 when opening files
-    vim.opt.fileencodings:remove { "latin1", "default" }
-    vim.opt.fileencodings:append { "cp1251", }
+    vim.opt.fileencodings:remove({ "latin1", "default" })
+    vim.opt.fileencodings:append({ "cp1251", })
 end
 
 -- Add lang mapping
@@ -126,6 +126,9 @@ require("nvim-tree").setup({
     renderer = {
         add_trailing = true,
         group_empty = true,
+    },
+    git = {
+        enable = false,
     }
 })
 
@@ -136,5 +139,11 @@ require("mappings")
 require("statusline")
 
 vim.lsp.enable("clangd")
--- vim.lsp.enable("csharp-ls")
+vim.lsp.enable("csharp-ls")
 
+vim.cmd.packloadall()
+
+-- Tree sitter configuration
+vim.treesitter.language.register("html", "html")
+vim.treesitter.language.register("css", "css")
+vim.treesitter.language.register("javascript", "javascript")

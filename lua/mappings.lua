@@ -43,6 +43,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
             local id = args.data.client_id
             local client = vim.lsp.get_client_by_id(id)
             client:stop()
+
+            if vim.treesitter.get_parser(args.buf) then
+                vim.opt_local.foldmethod = "expr"
+                vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            end
         end)
         vim.keymap.set("n", "<Leader>i", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

@@ -101,9 +101,12 @@ vim.api.nvim_create_autocmd( 'LspAttach', {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client:supports_method('textDocument/foldingRange') then
-            vim.opt.foldmethod = "expr"
-            local win = vim.api.nvim_get_current_win()
-            vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+            vim.opt_local.foldmethod = "expr"
+            vim.opt_local.foldexpr = 'v:lua.vim.lsp.foldexpr()'
+        elseif vim.treesitter.get_parser(args.buf) then
+            vim.opt_local.foldmethod = "expr"
+            vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        else
         end
     end,
 })
@@ -148,3 +151,7 @@ vim.treesitter.language.register("html", "html")
 vim.treesitter.language.register("css", "css")
 vim.treesitter.language.register("javascript", "javascript")
 vim.treesitter.language.register("c_sharp", "cs")
+vim.treesitter.language.register("cpp", "cpp")
+vim.treesitter.language.register("c", "c")
+vim.treesitter.language.register("python", "python")
+vim.treesitter.language.register("python", "python2")

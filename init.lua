@@ -118,7 +118,9 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- nvim-tree.lua
 require("nvim-tree").setup({
+    disable_netrw = true,
     sync_root_with_cwd = true,
+    respect_buf_cwd = true,
     view = {
         side = "left",
         width = {
@@ -129,6 +131,14 @@ require("nvim-tree").setup({
     renderer = {
         add_trailing = true,
         group_empty = true,
+        icons = {
+            show = {
+                file = false,
+                folder = false,
+                folder_arrow = false,
+                git = false,
+            },
+        },
     },
     git = {
         enable = false,
@@ -150,6 +160,9 @@ vim.cmd.packloadall()
 vim.treesitter.language.register("html", "html")
 vim.treesitter.language.register("css", "css")
 vim.treesitter.language.register("javascript", "javascript")
+vim.treesitter.language.register("javascript", "javascriptreact")
+vim.treesitter.language.register("typescript", "typescript")
+vim.treesitter.language.register("tsx", "typescriptreact")
 vim.treesitter.language.register("c_sharp", "cs")
 vim.treesitter.language.register("cpp", "cpp")
 vim.treesitter.language.register("c", "c")

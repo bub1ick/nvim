@@ -155,7 +155,8 @@ require("mappings")
 require("statusline")
 
 vim.lsp.enable("clangd")
-vim.lsp.enable("csharp-ls")
+-- vim.lsp.enable("csharp_ls")
+vim.lsp.enable("omnisharp")
 
 vim.cmd.packloadall()
 

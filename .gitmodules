@@ -10,3 +10,7 @@
 [submodule "nvim-tree.lua"]
 	path = pack/github/start/nvim-tree
 	url = https://github.com/nvim-tree/nvim-tree.lua.git
+[submodule "nvim-lspconfig"]
+	path = pack/github/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+	branch = master

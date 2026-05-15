@@ -1,5 +1,5 @@
 -- Visuals
-vim.cmd.colorscheme("lunaperche")
+vim.cmd.colorscheme("habamax")
 if vim.fn.has("win32") then
     vim.o.guifont = "Cascadia_Mono:h11:w0"
 end
@@ -30,9 +30,12 @@ vim.opt.listchars = {
 }
 vim.opt.showbreak = "↲"
 
+-- Change the way buffer switching works
+vim.opt.switchbuf = { "uselast", "vsplit", "useopen" }
+
 -- Set maximum line length
 --vim.opt.textwidth   = 100
-vim.opt.colorcolumn = "80,100,120"
+vim.opt.colorcolumn = "73,120"
 
 -- Set locale to english UTF-8
 vim.cmd.language("en_US.UTF-8")
@@ -66,7 +69,7 @@ vim.opt.belloff = "all"
 
 --- Set tab options
 -- Make \t appear as 8 spaces
-vim.opt.tabstop     = 4
+vim.opt.tabstop     = 8
 -- Allways indent by 4 when using tab. Every 8 spaces tab may potentially be used
 vim.opt.softtabstop = 4
 -- For > operator. Specifies amount of spaces added
@@ -96,7 +99,7 @@ end
 
 -- Set foldmethod
 vim.opt.foldmethod = "syntax"
--- If supported by language server fold using it
+-- If supported by language server, fold using it
 vim.api.nvim_create_autocmd( 'LspAttach', {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)

@@ -13,7 +13,7 @@ vim.keymap.set("n", "<S-Up>",    "<C-w>+")
 vim.keymap.set("n", "<S-Down>",  "<C-w>-")
 
 -- Toggle hidden characters
-vim.keymap.set("n", "<Leader>l", function() vim.opt.list = not vim.opt.list:get() end)
+vim.keymap.set("n", "<Leader>h", function() vim.opt.list = not vim.opt.list:get() end)
 
 -- Change working directory to that of current file's directory
 vim.keymap.set("n", "<Leader>cd",  ":cd %:p:h<CR>:pwd<CR>")
@@ -33,10 +33,8 @@ end)
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
         vim.keymap.set("n", "<Leader>s", vim.lsp.buf.signature_help)
-        vim.keymap.set("n", "<F2>",      vim.lsp.buf.rename)
         vim.keymap.set("n", "gD",        vim.lsp.buf.declaration)
         vim.keymap.set("n", "gd",        vim.lsp.buf.definition)
-        vim.keymap.set("n", "<F12>",     vim.lsp.buf.type_definition)
         vim.keymap.set("n", "<Leader>f", vim.lsp.buf.workspace_symbol)
         vim.keymap.set("n", "<Leader>o", vim.cmd.ClangdSwitchSourceHeader)
         vim.keymap.set("n", "<Leader>k", function()
@@ -57,7 +55,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- nvim-tree
 local nvim_tree_api = require("nvim-tree.api")
-vim.keymap.set("n", "<Leader>p", function()
+vim.keymap.set("n", "<Leader>t", function()
     nvim_tree_api.tree.toggle({find_file = true,})
 end)
 

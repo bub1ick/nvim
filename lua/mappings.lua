@@ -20,6 +20,14 @@ vim.keymap.set("n", "<Leader>cd",  ":cd %:p:h<CR>:pwd<CR>")
 vim.keymap.set("n", "<Leader>tcd", ":tcd %:p:h<CR>:pwd<CR>")
 vim.keymap.set("n", "<Leader>lcd", ":lcd %:p:h<CR>:pwd<CR>")
 
+-- Yank to system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
+
+-- Paste from system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
+vim.keymap.set("n", "<leader>P", '"+P')
+
 -- Switch light/dark theme variant if possible
 vim.keymap.set("n", "<Leader>b", function()
     if vim.o.background == "dark" then
@@ -55,7 +63,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- nvim-tree
 local nvim_tree_api = require("nvim-tree.api")
-vim.keymap.set("n", "<Leader>t", function()
+vim.keymap.set("n", "<Leader>e", function()
     nvim_tree_api.tree.toggle({find_file = true,})
 end)
 

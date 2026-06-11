@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "gD",        vim.lsp.buf.declaration)
         vim.keymap.set("n", "gd",        vim.lsp.buf.definition)
         vim.keymap.set("n", "<Leader>f", vim.lsp.buf.workspace_symbol)
-        vim.keymap.set("n", "<Leader>o", vim.cmd.ClangdSwitchSourceHeader)
+        vim.keymap.set("n", "<Leader>o", vim.cmd.LspClangdSwitchSourceHeader)
         vim.keymap.set("n", "<Leader>k", function()
             local id = args.data.client_id
             local client = vim.lsp.get_client_by_id(id)
@@ -77,7 +77,10 @@ if vim.g.neovide then
     vim.g.neovide_scale_factor = vim.g.neovide_scale_factor or 1.0
     local change_scale = function (delta)
         local default = 1.0
-        local scales = {0.25, 0.33, 0.5, 0.67, 0.75, 0.8, 0.9, 1.0, 1.1, 1.25, 1.33, 1.4, 1.5, 1.75, 2.0}
+        local scales = {
+            0.25, 0.33, 0.5, 0.67, 0.75, 0.8, 0.9, 1.0,
+            1.1, 1.25, 1.33, 1.4, 1.5, 1.75, 2.0
+        }
 
         if delta == 0 then
             vim.g.neovide_scale_factor = default

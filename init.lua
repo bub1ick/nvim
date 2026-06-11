@@ -5,15 +5,18 @@ if vim.fn.has("win32") then
 end
 vim.opt.linespace = 0
 
-if vim.g.neovide then
-	vim.g.neovide_position_animation_length = 0
-	vim.g.neovide_cursor_animation_length = 0.00
-	vim.g.neovide_cursor_trail_size = 0
-	vim.g.neovide_cursor_animate_in_insert_mode = false
-	vim.g.neovide_cursor_animate_command_line = false
-	vim.g.neovide_scroll_animation_far_lines = 0
-	vim.g.neovide_scroll_animation_length = 0.00
-end
+-- if vim.g.neovide then
+--      vim.g.neovide_position_animation_length = 0
+--      vim.g.neovide_cursor_animation_length = 0.00
+--      vim.g.neovide_cursor_trail_size = 0
+--      vim.g.neovide_cursor_animate_in_insert_mode = false
+--      vim.g.neovide_cursor_animate_command_line = false
+--      vim.g.neovide_scroll_animation_far_lines = 0
+--      vim.g.neovide_scroll_animation_length = 0.00
+-- end
+
+-- Enable custom per directory configs
+vim.opt.exrc = true
 
 -- Set showing current and relative line numbers
 vim.opt.number         = true
@@ -79,7 +82,7 @@ vim.opt.expandtab   = true
 
 
 -- Add working directory recursively
-vim.opt.path:prepend("**")
+vim.opt.path = { '.', '', '**' }
 
 -- Settings for C/C++
 if vim.env.INCLUDE and vim.fn.has("win32") then
@@ -147,6 +150,15 @@ require("nvim-tree").setup({
         enable = false,
     }
 })
+
+-- Change default terminal shell
+if vim.fn.has("win32") then
+    vim.o.shell = "pwsh"
+    vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
+    vim.o.shellcmdflag = vim.o.shellcmdflag .. "$PSStyle.OutputRendering = 'PlainText';"
+    vim.o.shellquote = ""
+    vim.o.shellxquote = ""
+end
 
 -- All custom mappings
 require("mappings")

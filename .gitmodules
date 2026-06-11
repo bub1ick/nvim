@@ -1,9 +1,6 @@
 [submodule "hlsl.vim"]
 	path = pack/github/start/hlsl
 	url = https://github.com/beyondmarc/hlsl.vim.git
-[submodule "nvim-shaderlab"]
-	path = pack/github/start/shaderlab
-	url = https://github.com/bub1ick/nvim-shaderlab.git
 [submodule "cg.vim"]
 	path = pack/github/start/cg
 	url = https://github.com/vim-scripts/cg.vim.git
@@ -14,3 +11,6 @@
 	path = pack/github/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
 	branch = master
+[submodule "shaderlab"]
+	path = pack/github/start/shaderlab
+	url = https://github.com/koturn/vim-shaderlab.git

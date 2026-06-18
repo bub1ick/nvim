@@ -120,36 +120,36 @@ vim.api.nvim_create_autocmd( 'LspAttach', {
 vim.opt.completeopt = { "menu", "menuone", "popup", "noinsert", "fuzzy" }
 
 -- Disable Netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 -- nvim-tree.lua
-require("nvim-tree").setup({
-    disable_netrw = true,
-    sync_root_with_cwd = true,
-    respect_buf_cwd = true,
-    view = {
-        side = "left",
-        width = {
-            min = 20,
-            max = 100,
-        }
-    },
-    renderer = {
-        add_trailing = true,
-        group_empty = true,
-        icons = {
-            show = {
-                file = false,
-                folder = false,
-                folder_arrow = false,
-                git = false,
-            },
-        },
-    },
-    git = {
-        enable = false,
-    }
-})
+-- require("nvim-tree").setup({
+--     disable_netrw = true,
+--     sync_root_with_cwd = true,
+--     respect_buf_cwd = true,
+--     view = {
+--         side = "left",
+--         width = {
+--             min = 20,
+--             max = 100,
+--         }
+--     },
+--     renderer = {
+--         add_trailing = true,
+--         group_empty = true,
+--         icons = {
+--             show = {
+--                 file = false,
+--                 folder = false,
+--                 folder_arrow = false,
+--                 git = false,
+--             },
+--         },
+--     },
+--     git = {
+--         enable = false,
+--     }
+-- })
 
 -- Change default terminal shell
 if vim.fn.has("win32") then

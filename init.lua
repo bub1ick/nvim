@@ -34,7 +34,7 @@ vim.opt.listchars = {
 vim.opt.showbreak = "↲"
 
 -- Change the way buffer switching works
-vim.opt.switchbuf = { "uselast", "vsplit", "useopen" }
+vim.opt.switchbuf = { "uselast" }
 
 -- Set maximum line length
 --vim.opt.textwidth   = 100

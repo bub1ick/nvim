@@ -24,6 +24,16 @@ vim.keymap.set("", "<C-Space>", function()
     end
 end)
 
+-- Add :make keybind
+vim.keymap.set("", "<F5>", function()
+    local target = vim.fn.input({prompt = "Build Target: ", completion = "file"})
+    if target == "" then
+        vim.cmd.make()
+    else
+        vim.cmd.make(target)
+    end
+end)
+
 -- Change working directory to that of current file's directory
 vim.keymap.set("n", "<Leader>cd",  ":cd %:p:h<CR>:pwd<CR>")
 vim.keymap.set("n", "<Leader>tcd", ":tcd %:p:h<CR>:pwd<CR>")

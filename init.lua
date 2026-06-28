@@ -51,22 +51,6 @@ if vim.fn.has("win32") then
     vim.opt.fileencodings:append({ "cp1251", })
 end
 
--- Add lang mapping
---                (        rus;eng  ),
-vim.opt.langmap = "№;#," ..
---                (         rus;eng        ),
-                  "йцукенгшщзхъ;qwertyuiop[]," ..
---                (         rus;eng        ),
-                  "ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}," ..
---                (        rus;eng          ),
-                  "фывапролджэ;asdfghjkl\\;\'," ..
---                (        rus;eng          ),
-                  "ФЫВАПРОЛДЖЭ;ASDFGHJKL:\\\"," ..
---                (      rus;eng       ),
-                  "ячсмитьбю;zxcvbnm\\,.," ..
---                (      rus;eng     )
-                  "ЯЧСМИТЬБЮ;ZXCVBNM<>"
-
 -- Turn off annoying bell sound
 vim.opt.belloff = "all"
 

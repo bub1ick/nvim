@@ -15,6 +15,15 @@ vim.keymap.set("n", "<S-Down>",  "<C-w>-")
 -- Toggle hidden characters
 vim.keymap.set("n", "<Leader>h", function() vim.opt.list = not vim.opt.list:get() end)
 
+-- Switch keymap rus<->eng
+vim.keymap.set("", "<C-Space>", function()
+    if vim.o.keymap == "russian-jcukenwin" then
+        vim.o.keymap = ""
+    else
+        vim.o.keymap = "russian-jcukenwin"
+    end
+end)
+
 -- Change working directory to that of current file's directory
 vim.keymap.set("n", "<Leader>cd",  ":cd %:p:h<CR>:pwd<CR>")
 vim.keymap.set("n", "<Leader>tcd", ":tcd %:p:h<CR>:pwd<CR>")

@@ -80,9 +80,9 @@ vim.opt.shiftwidth  = 4
 -- Always uses spaces even if tabs may be used.
 vim.opt.expandtab   = true
 
-
 -- Add working directory recursively
 vim.opt.path = { '.', '', '**' }
+vim.opt.grepprg = "rg --vimgrep --hidden --no-ignore-vcs"
 
 -- Settings for C/C++
 if vim.env.INCLUDE and vim.fn.has("win32") then

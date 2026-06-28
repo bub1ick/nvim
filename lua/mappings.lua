@@ -62,10 +62,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- nvim-tree
-local nvim_tree_api = require("nvim-tree.api")
-vim.keymap.set("n", "<Leader>e", function()
-    nvim_tree_api.tree.toggle({find_file = true,})
-end)
+-- local nvim_tree_api = require("nvim-tree.api")
+--vim.keymap.set("n", "<Leader>e", function()
+--    nvim_tree_api.tree.toggle({find_file = true,})
+--end)
 
 -- Neovide keymaps
 if vim.g.neovide then

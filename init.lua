@@ -37,8 +37,8 @@ vim.opt.showbreak = "↲"
 vim.opt.switchbuf = { "uselast" }
 
 -- Set maximum line length
---vim.opt.textwidth   = 100
-vim.opt.colorcolumn = "73,120"
+-- vim.opt.textwidth   = 100
+vim.opt.colorcolumn = ""
 
 -- Set locale to english UTF-8
 vim.cmd.language("en_US.UTF-8")

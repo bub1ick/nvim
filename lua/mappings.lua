@@ -28,9 +28,9 @@ end)
 vim.keymap.set("", "<F5>", function()
     local target = vim.fn.input({prompt = "Build Target: ", completion = "file"})
     if target == "" then
-        vim.cmd.make()
+        vim.cmd.make({bang = true})
     else
-        vim.cmd.make(target)
+        vim.cmd.make({target, bang = true})
     end
 end)
 

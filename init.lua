@@ -1,9 +1,28 @@
 -- Visuals
-vim.cmd.colorscheme("habamax")
+vim.cmd.colorscheme("lunaperche")
 if vim.fn.has("win32") then
     vim.o.guifont = "Cascadia_Mono:h11:w0"
 end
 vim.opt.linespace = 0
+
+local tag_groups = {
+  ["@comment.error"]   = { "FIXME", "BUG", "XXX", "ERROR" },
+  ["@comment.warning"] = { "HACK", "WARNING", "WARN", "DEPRECATED", "CAUTION" },
+  ["@comment.todo"]    = { "TODO", "TBD", "TASK" },
+  ["@comment.note"]    = { "NOTE", "INFO", "REVIEW", "IDEA", "OPTIMIZE", "PERF", "QUESTION" },
+}
+
+local function add_todo_matches()
+    for group, tags in pairs(tag_groups) do
+        for _, tag in ipairs(tags) do
+            pcall(vim.fn.matchadd, group, "\\<" .. tag .. "\\>")
+        end
+    end
+end
+
+vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, { callback = add_todo_matches, })
+
+add_todo_matches()
 
 -- if vim.g.neovide then
 --      vim.g.neovide_position_animation_length = 0

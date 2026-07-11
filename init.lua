@@ -8,7 +8,7 @@ vim.opt.linespace = 0
 local tag_groups = {
   ["@comment.error"]   = { "FIXME", "BUG", "XXX", "ERROR" },
   ["@comment.warning"] = { "HACK", "WARNING", "WARN", "DEPRECATED", "CAUTION" },
-  ["@comment.todo"]    = { "TODO", "TBD", "TASK" },
+  ["@comment.todo"]    = { "TODO", "TBD", "TASK", "IMPROVE" },
   ["@comment.note"]    = { "NOTE", "INFO", "REVIEW", "IDEA", "OPTIMIZE", "PERF", "QUESTION" },
 }
 

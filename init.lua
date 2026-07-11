@@ -15,7 +15,12 @@ local tag_groups = {
 local function add_todo_matches()
     for group, tags in pairs(tag_groups) do
         for _, tag in ipairs(tags) do
-            pcall(vim.fn.matchadd, group, "\\<" .. tag .. "\\>")
+            pcall(vim.fn.matchadd, group,
+                "\\(@\\=\\)" ..                -- Optional @ character in front of a tag
+                "\\(\\<" .. tag .. "\\>\\)" .. -- The tag itself
+                "\\((.*)\\)*" ..               -- Optional (author)
+                "\\(:\\)*"                     -- Optional colon
+            )
         end
     end
 end

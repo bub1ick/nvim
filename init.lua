@@ -18,8 +18,8 @@ local function add_todo_matches()
             pcall(vim.fn.matchadd, group,
                 "\\(@\\=\\)" ..                -- Optional @ character in front of a tag
                 "\\(\\<" .. tag .. "\\>\\)" .. -- The tag itself
-                "\\((.*)\\)*" ..               -- Optional (author)
-                "\\(:\\)*"                     -- Optional colon
+                "\\s*\\((.*)\\)*" ..           -- Optional (author)
+                "\\(:*\\)"                     -- Optional colon
             )
         end
     end
@@ -29,15 +29,15 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, { callback = add_todo
 
 add_todo_matches()
 
--- if vim.g.neovide then
---      vim.g.neovide_position_animation_length = 0
---      vim.g.neovide_cursor_animation_length = 0.00
---      vim.g.neovide_cursor_trail_size = 0
---      vim.g.neovide_cursor_animate_in_insert_mode = false
---      vim.g.neovide_cursor_animate_command_line = false
---      vim.g.neovide_scroll_animation_far_lines = 0
---      vim.g.neovide_scroll_animation_length = 0.00
--- end
+if vim.g.neovide then
+     vim.g.neovide_position_animation_length = 0
+     vim.g.neovide_cursor_animation_length = 0.00
+     vim.g.neovide_cursor_trail_size = 0
+     vim.g.neovide_cursor_animate_in_insert_mode = false
+     vim.g.neovide_cursor_animate_command_line = false
+     vim.g.neovide_scroll_animation_far_lines = 0
+     vim.g.neovide_scroll_animation_length = 0.00
+end
 
 -- Enable custom per directory configs
 vim.opt.exrc = true
@@ -66,6 +66,10 @@ vim.opt.colorcolumn = ""
 
 -- Set locale to english UTF-8
 vim.cmd.language("en_US.UTF-8")
+
+-- Add a russian keymap and disable it by default
+vim.opt.keymap = "russian-jcukenwin"
+vim.opt.iminsert = 0
 
 -- Set nvim internal encoding
 vim.opt.encoding = "utf-8"
@@ -127,38 +131,6 @@ vim.api.nvim_create_autocmd( 'LspAttach', {
 -- Set completion options
 vim.opt.completeopt = { "menu", "menuone", "popup", "noinsert", "fuzzy" }
 
--- Disable Netrw
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
--- nvim-tree.lua
--- require("nvim-tree").setup({
---     disable_netrw = true,
---     sync_root_with_cwd = true,
---     respect_buf_cwd = true,
---     view = {
---         side = "left",
---         width = {
---             min = 20,
---             max = 100,
---         }
---     },
---     renderer = {
---         add_trailing = true,
---         group_empty = true,
---         icons = {
---             show = {
---                 file = false,
---                 folder = false,
---                 folder_arrow = false,
---                 git = false,
---             },
---         },
---     },
---     git = {
---         enable = false,
---     }
--- })
-
 -- Change default terminal shell
 if vim.fn.has("win32") then
     vim.o.shell = "pwsh"
@@ -174,11 +146,11 @@ require("mappings")
 -- Status Line construction
 require("statusline")
 
+vim.cmd.packadd("nvim.undotree")
+
 vim.lsp.enable("clangd")
 -- vim.lsp.enable("csharp_ls")
 vim.lsp.enable("omnisharp")
-
-vim.cmd.packloadall()
 
 -- Tree sitter configuration
 vim.treesitter.language.register("html", "html")

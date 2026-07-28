@@ -10,19 +10,13 @@ vim.keymap.set("n", "<C-s>", vim.cmd.pop)
 vim.keymap.set("n", "<S-Left>",  "<C-w><")
 vim.keymap.set("n", "<S-Right>", "<C-w>>")
 vim.keymap.set("n", "<S-Up>",    "<C-w>+")
-vim.keymap.set("n", "<S-Down>",  "<C-w>-")
 
 -- Toggle hidden characters
 vim.keymap.set("n", "<Leader>h", function() vim.opt.list = not vim.opt.list:get() end)
 
 -- Switch keymap rus<->eng
-vim.keymap.set("", "<C-Space>", function()
-    if vim.o.keymap == "russian-jcukenwin" then
-        vim.o.keymap = ""
-    else
-        vim.o.keymap = "russian-jcukenwin"
-    end
-end)
+vim.keymap.set("!", "<C-Space>", "<C-^>")
+vim.keymap.set("!", "<C-l>", "<C-^>")
 
 -- Add :make keybind
 vim.keymap.set("", "<F5>", function()
@@ -79,12 +73,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end)
     end
 })
-
--- nvim-tree
--- local nvim_tree_api = require("nvim-tree.api")
---vim.keymap.set("n", "<Leader>e", function()
---    nvim_tree_api.tree.toggle({find_file = true,})
---end)
 
 -- Neovide keymaps
 if vim.g.neovide then

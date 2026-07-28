@@ -1,11 +1,6 @@
 vim.g.mapleader = " "
 vim.g.localmapleader = "\\"
 
--- Tab remaps
-vim.keymap.set("n", "<C-t>", vim.cmd.tabnew)
-vim.keymap.set("n", "<C-q>", vim.cmd.tabclose)
-vim.keymap.set("n", "<C-s>", vim.cmd.pop)
-
 -- Window Resizing
 vim.keymap.set("n", "<S-Left>",  "<C-w><")
 vim.keymap.set("n", "<S-Right>", "<C-w>>")

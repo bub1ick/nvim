@@ -14,3 +14,9 @@
 [submodule "shaderlab"]
 	path = pack/github/start/shaderlab
 	url = https://github.com/koturn/vim-shaderlab.git
+[submodule "alabaster"]
+	path = pack/github/opt/alabaster
+	url = https://github.com/dchinmay2/alabaster.nvim
+[submodule "pack/github/opt/vim-skittles-theme"]
+	path = pack/github/opt/vim-skittles-theme
+	url = https://github.com/weih/vim-skittles-theme.git

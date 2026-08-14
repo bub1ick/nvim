@@ -1,5 +1,5 @@
 -- Visuals
-vim.cmd.colorscheme("lunaperche")
+vim.cmd.colorscheme("skittles")
 if vim.fn.has("win32") then
     vim.o.guifont = "Cascadia_Mono:h11:w0"
 end
